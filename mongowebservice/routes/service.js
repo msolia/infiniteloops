@@ -34,16 +34,4 @@ router.get('/users/:username', function (req, res,next) {
 });
 
 
-router.route('/users').post(function(req, res) {
-  var movie = new model(req.body);
- 
-  movie.save(function(err) {
-    if (err) {
-      return res.send(err);
-    }
- 
-    res.send({ message: 'Movie Added' });
-  });
-});
-
 module.exports = router;
