@@ -1,0 +1,123 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent" android:layout_height="fill_parent"
+    android:orientation="vertical">
+
+    <TextView android:id="@+id/textView2" android:layout_width="wrap_content"
+        android:layout_height="wrap_content" android:layout_gravity="center_horizontal"
+        android:paddingBottom="25dp" android:paddingTop="5dp"
+        android:text="Scheduler Task" android:textColor="#ffff861b"
+        android:textSize="20dp"></TextView>
+
+    <ToggleButton
+        android:id="@+id/toggleButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Enable Schedule Task"
+        android:textOff="Off"
+        android:textOn="On" />
+
+    <TextView
+        android:id="@+id/ontextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Set On Date and On Time" />
+
+    <LinearLayout android:id="@+id/linearLayout0"
+        android:layout_width="match_parent" android:layout_height="wrap_content">
+
+        <Button android:id="@+id/onDate"
+            android:layout_width="100dp" android:layout_height="wrap_content" android:layout_weight="0"
+            android:text="Date"></Button>
+
+        <EditText android:id="@+id/ontxtDate"
+            android:layout_width="wrap_content" android:layout_height="wrap_content"
+            android:layout_weight="1">
+            <requestFocus></requestFocus>
+        </EditText>
+    </LinearLayout>
+    <LinearLayout android:id="@+id/linearLayout1"
+        android:layout_width="match_parent" android:layout_height="wrap_content">
+
+        <Button android:id="@+id/onTime"
+            android:layout_width="100dp" android:layout_height="wrap_content"
+            android:layout_weight="0" android:text="Time"></Button>
+
+        <EditText android:id="@+id/ontxtTime"
+            android:layout_width="wrap_content" android:layout_height="wrap_content"
+            android:layout_weight="1">
+            <requestFocus></requestFocus>
+        </EditText>
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/offtextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="0"
+        android:text="Set Off Date and Off Time" />
+
+    <LinearLayout android:id="@+id/linearLayout2"
+        android:layout_width="match_parent" android:layout_height="wrap_content">
+
+        <Button android:id="@+id/offdate"
+            android:layout_width="100dp" android:layout_height="wrap_content" android:layout_weight="0"
+            android:text="Date"></Button>
+
+        <EditText android:id="@+id/offtxtDate"
+            android:layout_width="wrap_content" android:layout_height="wrap_content"
+            android:layout_weight="1">
+            <requestFocus></requestFocus>
+        </EditText>
+    </LinearLayout>
+    <LinearLayout android:id="@+id/linearLayout3"
+        android:layout_width="match_parent" android:layout_height="wrap_content">
+
+        <Button android:id="@+id/offTime"
+            android:layout_width="100dp" android:layout_height="wrap_content"
+            android:layout_weight="0" android:text="Time"></Button>
+
+        <EditText android:id="@+id/offtxtTime"
+            android:layout_width="wrap_content" android:layout_height="wrap_content"
+            android:layout_weight="1">
+            <requestFocus></requestFocus>
+        </EditText>
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/setbutton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="set"
+        android:text="Set" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+    <CheckBox
+        android:id="@+id/checkBox"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:text="Send Message"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true" />
+
+    <EditText
+        android:id="@+id/defaultmsg"
+        android:layout_width="180dp"
+        android:layout_height="wrap_content"
+        android:text="Set your default message"
+        android:layout_alignParentTop="true"
+        android:layout_toEndOf="@+id/checkBox" />
+
+    <Button
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Set"
+        android:id="@+id/setdefaultmsgbutton"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true" />
+
+    </RelativeLayout>
+</LinearLayout>
