@@ -16,7 +16,6 @@
 
 package com.android.internal.telephony;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.telephony.CellInfo;
 import android.telephony.IccOpenLogicalChannelResponse;

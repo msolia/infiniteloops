@@ -1,27 +1,16 @@
 package com.example.dndmanager;
 
-import android.app.Fragment;
-import android.content.Context;
+
 import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
-import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
-import android.widget.EditText;
-import android.widget.ListView;
-import android.widget.TextView;
-import android.widget.Toast;
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
 
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
+
 
 
 public class MainActivity extends ActionBarActivity {
@@ -32,7 +21,10 @@ public class MainActivity extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-    }
+         AdView mAdView = (AdView) findViewById(R.id.adView);
+         AdRequest adRequest = new AdRequest.Builder().build();
+         mAdView.loadAd(adRequest);
+     }
 
 
     @Override

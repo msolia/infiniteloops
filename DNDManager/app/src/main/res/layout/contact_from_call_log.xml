@@ -6,7 +6,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Tap On Below contacts to Add"
+        android:text="@string/tap_on_below_contacts_to_add"
         android:id="@+id/calllogtitle" />
 
     <ListView

@@ -6,13 +6,11 @@ import android.content.Intent;
 import android.media.AudioManager;
 import android.telephony.SmsManager;
 import android.telephony.TelephonyManager;
-
 import com.android.internal.telephony.*;
-
 import java.lang.reflect.Method;
 import java.util.*;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
+
 
 /**
  * Created by madsoliy on 1/30/2015.
@@ -68,8 +66,6 @@ public class IncomingCallReciever  extends BroadcastReceiver {
 
                     db.setLog(datetimeFormat.format(date), incomingNumber);//Generate log of incoming number with respect to Date-Time
                 }
-
-
                 //If Schedule Task is On
                 if (ScheduleTaskStatus)
                 {

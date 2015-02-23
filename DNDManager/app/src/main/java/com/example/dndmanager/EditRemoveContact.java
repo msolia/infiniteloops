@@ -2,6 +2,7 @@ package com.example.dndmanager;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.provider.BaseColumns;
@@ -9,16 +10,16 @@ import android.support.v4.widget.CursorAdapter;
 import android.support.v4.widget.SimpleCursorAdapter;
 import android.support.v7.app.ActionBarActivity;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.view.View;
 import android.widget.EditText;
-import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import org.w3c.dom.Text;
 
 /**
  * Created by madsoliy on 1/29/2015.
@@ -55,6 +56,32 @@ public class EditRemoveContact  extends ActionBarActivity implements OnItemClick
         }
     }
 
+    public boolean onCreateOptionsMenu(Menu menu)
+    {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.blocked_contact_share, menu);
+        return true;
+    }
+
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle action bar item clicks here. The action bar will
+        // automatically handle clicks on the Home/Up button, so long
+        // as you specify a parent activity in AndroidManifest.xml.
+        int id = item.getItemId();
+
+        //noinspection SimplifiableIfStatement
+        if (id == R.id.menu_item_share)
+        {
+            Intent sendIntent = new Intent();
+            sendIntent.setAction(Intent.ACTION_SEND);
+            int temp = db.getAllContacts().toString().length();
+            sendIntent.putExtra(Intent.EXTRA_TEXT,"Blocked Contacts:"+ db.getAllContacts().toString().substring(1,temp-1));
+            sendIntent.setType("text/plain");
+            startActivity(sendIntent);
+        }
+
+        return super.onOptionsItemSelected(item);
+    }
     public boolean createListView(Cursor getContacts)
     {
         String[] columnNames = {BaseColumns._ID,"number"};

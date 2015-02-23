@@ -5,17 +5,8 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
-import android.graphics.AvoidXfermode;
-import android.os.Environment;
-import android.provider.CallLog;
-import android.provider.MediaStore;
-
-import java.io.File;
 import java.util.ArrayList;
 
-import static android.database.sqlite.SQLiteDatabase.OPEN_READONLY;
-import static android.database.sqlite.SQLiteDatabase.openDatabase;
-import static android.database.sqlite.SQLiteDatabase.openOrCreateDatabase;
 
 /**
  * Created by madsoliy on 1/29/2015.
@@ -71,10 +62,12 @@ public class DBHelper extends SQLiteOpenHelper {
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor res =  db.rawQuery( "select * from "+CONTACTS_TABLE_NAME, null );
         res.moveToFirst();
-        while(res.isAfterLast() == false){
+        while(!res.isAfterLast())
+        {
             array_list.add(res.getString(res.getColumnIndex("number")));
             res.moveToNext();
         }
+        res.close();
         return array_list;
     }
 
@@ -95,9 +88,7 @@ public class DBHelper extends SQLiteOpenHelper {
 
         cursor.moveToFirst();
 
-        String contact = cursor.getString(cursor.getColumnIndex("number"));
-
-        return contact;
+        return cursor.getString(cursor.getColumnIndex("number"));
     }
 
     public boolean updateContact(long id,String newNumber)
@@ -159,7 +150,9 @@ public class DBHelper extends SQLiteOpenHelper {
         contentValues.put("offdate",offDate);
         contentValues.put("offtime",offTime);
 
-        db.update(SCHEDULE_TABLE_NAME,contentValues,"", new String[]{});
+        db.execSQL("delete from "+SCHEDULE_TABLE_NAME);
+        //db.update(SCHEDULE_TABLE_NAME,contentValues,"", new String[]{});
+        db.insert(SCHEDULE_TABLE_NAME,null,contentValues);
 
         return true;
      }
@@ -184,7 +177,8 @@ public class DBHelper extends SQLiteOpenHelper {
             contentValues.put("ontime","");
             contentValues.put("offdate","");
             contentValues.put("offtime","");
-            db.insert(SCHEDULE_TABLE_NAME, null, contentValues);
+           // db.insert(SCHEDULE_TABLE_NAME, null, contentValues);
+            db.update(SCHEDULE_TABLE_NAME, contentValues, "", new String[]{});
 
             return true;
         }
@@ -321,7 +315,6 @@ public class DBHelper extends SQLiteOpenHelper {
     }
     public String getDefaultMsg()
     {
-        ArrayList<String> arrayList = new ArrayList<>();
         SQLiteDatabase db = this.getReadableDatabase();
 
         Cursor res =  db.rawQuery("select * from "+DEFAULT_MESSAGE_TABLE_NAME,null);

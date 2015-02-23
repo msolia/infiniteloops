@@ -13,6 +13,8 @@ import android.widget.TextView;
 import android.widget.TimePicker;
 import android.widget.Toast;
 import android.widget.ToggleButton;
+
+import java.util.ArrayList;
 import java.util.Calendar;
 
 
@@ -69,8 +71,9 @@ public class SchedulerTask extends ActionBarActivity implements
 
          if(db.getScheduleStatus())
          {
-            toggleButton.setChecked(true);
-            changeLayout(true);
+             toggleButton.setChecked(true);
+             changeLayout(true);
+             scheduleDetails();
          }
          else
          {
@@ -113,7 +116,6 @@ public class SchedulerTask extends ActionBarActivity implements
         }
         else
         {
-
             onDate.setVisibility(View.INVISIBLE);
             onTime.setVisibility(View.INVISIBLE);
             offDate.setVisibility(View.INVISIBLE);
@@ -128,14 +130,10 @@ public class SchedulerTask extends ActionBarActivity implements
             defaultmsg.setVisibility(View.INVISIBLE);
             checkBox.setVisibility(View.INVISIBLE);
             setdefaultmsgbutton.setVisibility(View.INVISIBLE);
-
-        }
-
+       }
     }
     @Override
     public void onClick(View v) {
-
-
         if (toggleButton.getText().equals("On"))
         {
             if(i==0)
@@ -144,17 +142,15 @@ public class SchedulerTask extends ActionBarActivity implements
 
                 if (status)
                 {
+                    //get schedule details if present
+                    scheduleDetails();
                     Toast.makeText(getApplicationContext(), "Scheduler Task:Enabled", Toast.LENGTH_SHORT).show();
                 }
             }
-
             changeLayout(true);
            // setdefaultmsgbutton.setVisibility(View.INVISIBLE);
-
-
             if (v == onDate)
             {
-
                 // Process to get Current Date
                 final Calendar c = Calendar.getInstance();
                 mYear = c.get(Calendar.YEAR);
@@ -293,6 +289,20 @@ public class SchedulerTask extends ActionBarActivity implements
         if(setScheduler)
         {
             Toast.makeText(getApplicationContext(), "Scheduler Set Successfully:", Toast.LENGTH_LONG).show();
+        }
+    }
+
+    public void scheduleDetails()
+    {
+        ArrayList<String> scheduleDetails = db.getSchedule();
+
+        //If schedule details present
+        if(scheduleDetails.size() > 1)
+        {
+            ontxtDate.setText(scheduleDetails.get(1));
+            ontxtTime.setText(scheduleDetails.get(2));
+            offtxtDate.setText(scheduleDetails.get(3));
+            offtxtTime.setText(scheduleDetails.get(4));
         }
     }
 }

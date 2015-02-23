@@ -7,7 +7,7 @@
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
         android:layout_weight="0.26"
         android:weightSum="1">
 
@@ -15,7 +15,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="Add Contacts to be Blocked"
+            android:text="@string/add_contacts_to_be_blocked"
             android:id="@+id/textView" />
 
         <ImageButton
@@ -27,9 +27,9 @@
 
         <TextView
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="0dp"
             android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="Remove or edit blocked contacts"
+            android:text="@string/remove_or_edit_blocked_contacts"
             android:id="@+id/textView2"
             android:layout_weight="0.26" />
 

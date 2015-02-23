@@ -51,12 +51,10 @@ public class ShowLog extends ActionBarActivity implements
         }
         else
         {
-
             //If totallog is zero
             totallog.setText("No New Log Found....");
             clearLog.setVisibility(View.INVISIBLE);
         }
-
     }
 
     public void onClick(View v)
@@ -74,6 +72,5 @@ public class ShowLog extends ActionBarActivity implements
                     Toast.makeText(getApplicationContext(), "Clear Log Successfully:", Toast.LENGTH_SHORT).show();
                 }
         }
-
-    }
+   }
 }
