@@ -13,7 +13,7 @@ var app = express();
 
 //Mongo
 var mongoose = require('mongoose');
-mongoose.connect('mongodb://10.132.162.76:27017/tempdb', function(err) {
+mongoose.connect('mongodb://admin:admin@ds047901.mongolab.com:47901/demoapps', function(err) {
     if(err) {
         console.log('connection error', err);
     } else {
