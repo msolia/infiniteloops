@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">DNDManager</string>
+    <string name="scheduler_task">Scheduler Task</string>
+    <string name="action_settings">Settings</string>
+    <string name="enter_number">Enter Number</string>
+    <string name="tap_on_below_contacts_to_add"> Tap On Below contacts to Add</string>
+    <string name="tap_on_below_contacts_to_edit_or_remove">Tap On Below contacts to Edit or Remove</string>
+    <string name="enable_schedule_task">Enable Schedule Task</string>
+    <string name="add_contacts_to_be_blocked">Add Contacts to be Blocked</string>
+    <string name="show_log">Show Log</string>
+    <string name="add_from_call_log">Add From Call Log</string>
+    <string name="clear">Clear</string>
+    <string name="set_on_date_and_on_time">Set On Date and On Time</string>
+    <string name="date">Date</string>
+    <string name="remove_or_edit_blocked_contacts">Remove or edit blocked contacts</string>
+    <string name="time">Time</string>
+    <string name="submit">Submit</string>
+    <string name="banner_ad_unit_id">ca-app-pub-2022661333201666/5546098836</string>
+
+
+
+
+
+
+
+</resources>
